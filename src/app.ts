@@ -1,38 +1,44 @@
-// Como podemos rodar isso em um arquivo .ts sem causar erros? 
 
-interface employee {
-    code: number, 
-    name: string
-}
-
-let funcionarioA: employee = {
-    code: 1, 
-    name: "Antonio"
-}
-
-let funcionarioB: employee = {
-    code: 2,
-    name: "Victor"
+// Como podemos melhorar o esse código usando TS? 
+enum Profissao_app {
+    Atriz,
+    Padeiro
 }
 
 
-class PessoaFisica {
-    codigo: number
-    nome: string
+type Humano = {
+    nome: string,
+    idade: number,
+    profissao: Profissao_app
+}
 
-    constructor(codigo: number, nome: string) {
-        this.codigo = codigo,
-        this.nome = nome
-    }
+let pessoa1: Humano = {
+    nome: "maria",
+    idade: 29,
+    profissao: Profissao_app.Atriz
+};
+
+let pessoa2: Humano = {
+    nome: "roberto",
+    idade: 19,
+    profissao: Profissao_app.Padeiro
+};
+
+let pessoa3: Humano = {
+    nome: "laura",
+    idade: 32,
+    profissao: Profissao_app.Atriz
+};
+
+let pessoa4: Humano = {
+    nome: "carlos",
+    idade: 19,
+    profissao: Profissao_app.Padeiro
 }
 
 
-let funcionarioC: PessoaFisica = {
-    codigo: 3,
-    nome: "Marcos"
-}
 
-
-console.log(funcionarioA)
-console.log(funcionarioB)
-console.log(funcionarioC)
+console.log(pessoa1)
+console.log(pessoa2)
+console.log(pessoa3)
+console.log(pessoa4)
