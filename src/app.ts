@@ -1,44 +1,26 @@
+// O código abaixo tem alguns erros e não funciona como deveria. Você pode identificar quais são e corrigi-los em um arquivo TS?
 
-// Como podemos melhorar o esse código usando TS? 
-enum Profissao_app {
-    Atriz,
-    Padeiro
+let botaoAtualizar = document.getElementById('atualizar-saldo') as HTMLButtonElement;
+let botaoLimpar = document.getElementById('limpar-saldo') as HTMLButtonElement;
+let soma = document.getElementById('soma') as HTMLInputElement;
+let campoSaldo = document.getElementById('campo-saldo') as HTMLSpanElement;
+
+let totalGeral = 0;
+
+function somarAoSaldo(soma: number) {
+    totalGeral += soma;
+    campoSaldo.innerHTML = totalGeral.toString()
 }
 
-
-type Humano = {
-    nome: string,
-    idade: number,
-    profissao: Profissao_app
+function limparSaldo() {
+    campoSaldo.innerHTML = '';
+    totalGeral = 0;
 }
 
-let pessoa1: Humano = {
-    nome: "maria",
-    idade: 29,
-    profissao: Profissao_app.Atriz
-};
+botaoAtualizar.addEventListener('click', function () {
+    somarAoSaldo(Number(soma.value));
+});
 
-let pessoa2: Humano = {
-    nome: "roberto",
-    idade: 19,
-    profissao: Profissao_app.Padeiro
-};
-
-let pessoa3: Humano = {
-    nome: "laura",
-    idade: 32,
-    profissao: Profissao_app.Atriz
-};
-
-let pessoa4: Humano = {
-    nome: "carlos",
-    idade: 19,
-    profissao: Profissao_app.Padeiro
-}
-
-
-
-console.log(pessoa1)
-console.log(pessoa2)
-console.log(pessoa3)
-console.log(pessoa4)
+botaoLimpar.addEventListener('click', function () {
+    limparSaldo();
+});
